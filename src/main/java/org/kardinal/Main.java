@@ -15,5 +15,6 @@ public class Main {
         b.setEnabledIntents(GatewayIntent.getIntents(GatewayIntent.ALL_INTENTS));
         JDA bot = b.build();
         bot.upsertCommand("test", "test").queue();
+        bot.upsertCommand("verify", "verify").queue();
     }
 }
