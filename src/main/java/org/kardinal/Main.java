@@ -9,14 +9,11 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        String token = "MTE0MTY3OTkxNTI4MDkwODI5OA.GCa_TW.KZml5ehc-PpqNoVg3YClCO8eNKwCyuONAjV9wE";
+        String token = "MTE0MjkwNDY1NjI4NTE1MTM4NA.GuSrUi.tLRzIz006TtpsktAb46CotSLEOhCh6nmGvQWcU";
 
         JDABuilder b = JDABuilder.createDefault(token).setStatus(OnlineStatus.ONLINE).setActivity(Activity.playing("rarr")).addEventListeners(new Commands());
         b.setEnabledIntents(GatewayIntent.getIntents(GatewayIntent.ALL_INTENTS));
-        JDA bot = b.build().awaitReady();
-        Guild g = bot.getGuildById("1013463649593081897");
-        g.upsertCommand("fmod", "an modal");
-        bot.upsertCommand("fmod", "fmod");
-        bot.updateCommands();
+        JDA bot = b.build();
+        bot.upsertCommand("test", "test").queue();
     }
 }
